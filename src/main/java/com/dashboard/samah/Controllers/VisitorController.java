@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/visitors")
-@CrossOrigin(origins = "https://samah.vercel.app/")
+@CrossOrigin(origins = {"https://samah.vercel.app/","https://dashboardsamah.vercel.app/","http://localhost:4200/","http://localhost:4201/"})
 public class VisitorController {
     private final VisitorService visitorService;
 
