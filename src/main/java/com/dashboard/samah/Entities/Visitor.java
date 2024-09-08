@@ -9,8 +9,6 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@RequiredArgsConstructor
 @Getter
 @Setter
 public class Visitor {
