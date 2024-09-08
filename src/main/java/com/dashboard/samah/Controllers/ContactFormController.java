@@ -2,7 +2,9 @@ package com.dashboard.samah.Controllers;
 
 import com.dashboard.samah.Entities.ContactForm;
 import com.dashboard.samah.Services.ContactFormService;
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,8 +16,15 @@ public class ContactFormController {
     private ContactFormService contactFormService;
 
     @PostMapping("/submit")
-    public String submitForm(@RequestBody ContactForm contactForm) {
+    public String submitForm(@RequestBody ContactForm contactForm) throws MessagingException {
         contactFormService.submitContactForm(contactForm);
         return "Form submitted successfully";
+    }
+
+    @GetMapping("/all")
+    public Page<ContactForm> getAllEmails(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        return contactFormService.getAllEmails(page, size);
     }
 }
