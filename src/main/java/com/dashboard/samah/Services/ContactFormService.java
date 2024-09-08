@@ -15,6 +15,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class ContactFormService {
@@ -57,5 +58,9 @@ public class ContactFormService {
     public Page<ContactForm> getAllEmails(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return contactFormRepository.findAll(pageable);
+    }
+
+    public Long Count() {
+        return contactFormRepository.count();
     }
 }

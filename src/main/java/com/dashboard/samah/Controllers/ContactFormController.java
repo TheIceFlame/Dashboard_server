@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/contact")
 @CrossOrigin(origins = {"https://samah.vercel.app/","https://dashboardsamah.vercel.app/","http://localhost:4200/","http://localhost:4201/"})
@@ -26,5 +28,9 @@ public class ContactFormController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
         return contactFormService.getAllEmails(page, size);
+    }
+    @GetMapping("/count")
+    public Long getAllEmails() {
+        return contactFormService.Count();
     }
 }
