@@ -4,12 +4,14 @@ package com.dashboard.samah.Controllers;
 import com.dashboard.samah.DTO.VisitorDTO;
 import com.dashboard.samah.Services.VisitorService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/visitors")
+@CrossOrigin(origins = "https://samah.vercel.app/")
 public class VisitorController {
     private final VisitorService visitorService;
 
